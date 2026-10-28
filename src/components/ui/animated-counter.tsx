@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
+import { useInView, animate, useMotionValue } from "framer-motion";
 
 interface AnimatedCounterProps {
   value?: number;
@@ -16,6 +16,7 @@ interface AnimatedCounterProps {
 /**
  * AnimatedCounter / CountUp
  * Smoothly animates numbers from 0 to target value when scrolled into view.
+ * Powered by Framer Motion's animate engine and useMotionValue.
  * Automatically parses strings like "99.9%", "78%+", "15 : 1", "3 Rounds".
  * Falls back to target number on SSR so tunnel/remote connections never see 0 or blank.
  */
@@ -55,10 +56,20 @@ export function AnimatedCounter({
     computedDecimals = 0;
   }
 
-  // Initial value defaults to targetNumber so SSR HTML displays the verified metric
-  const [displayValue, setDisplayValue] = useState(targetNumber ?? 0);
+  const formatNum = (num: number) => {
+    return computedDecimals! > 0
+      ? num.toFixed(computedDecimals!)
+      : Math.round(num).toString();
+  };
+
+  // SSR initial state uses the full target number so it's instantly readable
+  const [displayValue, setDisplayValue] = useState<string>(() => {
+    return targetNumber !== undefined ? formatNum(targetNumber) : (rawText || "");
+  });
+
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const motionVal = useMotionValue(0);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
@@ -66,47 +77,33 @@ export function AnimatedCounter({
       return;
     }
     hasAnimated.current = true;
-    setDisplayValue(0);
 
-    let startTime: number | null = null;
-    let animationFrame: number;
+    // Reset to 0 and animate smoothly to targetNumber using Framer Motion
+    motionVal.set(0);
+    setDisplayValue(formatNum(0));
 
-    // Smooth cubic ease out
-    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+    const controls = animate(motionVal, targetNumber, {
+      duration: Math.max(duration, 0.8),
+      ease: [0.16, 1, 0.3, 1], // easeOutExpo
+      onUpdate: (latest) => {
+        setDisplayValue(formatNum(latest));
+      },
+      onComplete: () => {
+        setDisplayValue(formatNum(targetNumber!));
+      },
+    });
 
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      const eased = easeOutCubic(progress);
-      const current = eased * targetNumber!;
-
-      setDisplayValue(current);
-
-      if (progress < 1) {
-        animationFrame = requestAnimationFrame(step);
-      } else {
-        setDisplayValue(targetNumber!);
-      }
-    };
-
-    animationFrame = requestAnimationFrame(step);
-
-    return () => cancelAnimationFrame(animationFrame);
-  }, [isInView, targetNumber, duration, isStaticText]);
+    return () => controls.stop();
+  }, [isInView, targetNumber, duration, isStaticText, computedDecimals]);
 
   if (isStaticText || targetNumber === undefined) {
     return <span className={className}>{rawText}</span>;
   }
 
-  const formatted =
-    computedDecimals > 0
-      ? displayValue.toFixed(computedDecimals)
-      : Math.round(displayValue).toString();
-
   return (
     <span ref={ref} className={className}>
       {computedPrefix}
-      {formatted}
+      {displayValue}
       {computedSuffix}
     </span>
   );
