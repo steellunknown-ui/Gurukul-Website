@@ -145,7 +145,7 @@ export default function AntiRaggingPage() {
         onOpenFeeModal={() => handleOpenFeeModal("std-1")}
       />
 
-      <main id="main-content" className="flex-1 pb-20 sm:pb-28">
+      <main id="main-content" className="flex-1 pb-8 sm:pb-12">
         {/* ========================================================= */}
         {/* 1. HERO SECTION: STATUTORY ZERO-TOLERANCE DECLARATION     */}
         {/* ========================================================= */}
@@ -710,7 +710,7 @@ export default function AntiRaggingPage() {
         {/* ========================================================= */}
         {/* 7. CONFIDENTIAL GRIEVANCE REPORTING FORM                  */}
         {/* ========================================================= */}
-        <section id="report-grievance" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-20 mb-20 sm:mb-28">
+        <section id="report-grievance" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16 mb-4 sm:mb-6">
           <MotionReveal direction="up">
             <div className="bg-white rounded-3xl border border-stone-200 shadow-xl overflow-hidden">
               <div className="bg-gradient-to-r from-[#9E1B32] to-[#B3243D] px-6 py-5 text-white">
@@ -910,7 +910,7 @@ export default function AntiRaggingPage() {
 
           {/* Reassuring Closing Institutional Statement */}
           <MotionReveal direction="up" delay={0.1}>
-            <div className="mt-10 sm:mt-12 text-center max-w-2xl mx-auto px-4">
+            <div className="mt-8 sm:mt-10 text-center max-w-2xl mx-auto px-4">
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-medium">
                 Gurukul Vidyapeeth is committed to upholding human dignity, mutual respect, and student well-being.
               </p>
