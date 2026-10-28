@@ -21,6 +21,7 @@ import {
 import { CrestLogo } from "@/components/ui/crest-logo";
 import { Button } from "@/components/ui/button";
 import { AdmissionClassLevel } from "@/components/home/enquiry-modal";
+import { useInstitutionalNav } from "@/lib/use-institutional-nav";
 
 interface HeaderProps {
   onOpenMobileNav: () => void;
@@ -29,6 +30,7 @@ interface HeaderProps {
 }
 
 export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: HeaderProps) {
+  const { handleLinkClick } = useInstitutionalNav();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -81,8 +83,9 @@ export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: Heade
           >
             {/* Overview Direct Link */}
             <Link
-              href="#overview"
-              className="px-3 py-2 text-xs xl:text-sm font-semibold text-slate-700 hover:text-[#9E1B32] rounded-md transition-colors hover:bg-[#9E1B32]/5"
+              href="/"
+              onClick={handleLinkClick("overview", closeDropdowns)}
+              className="px-3 py-2 text-xs xl:text-sm font-semibold text-slate-700 hover:text-[#9E1B32] rounded-md transition-colors hover:bg-[#9E1B32]/5 cursor-pointer"
             >
               Overview
             </Link>
@@ -120,16 +123,9 @@ export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: Heade
                   onMouseLeave={handleMouseLeave}
                 >
                   <div className="py-1">
-                    <a
-                      href="#sections"
-                      onClick={(e) => {
-                        closeDropdowns();
-                        const el = document.getElementById("sections");
-                        if (el) {
-                          e.preventDefault();
-                          el.scrollIntoView({ behavior: "smooth" });
-                        }
-                      }}
+                    <Link
+                      href="/#sections"
+                      onClick={handleLinkClick("sections", closeDropdowns)}
                       className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#9E1B32]/5 transition-colors cursor-pointer"
                     >
                       <div className="w-8 h-8 rounded-lg bg-[#9E1B32]/10 text-[#9E1B32] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#9E1B32] group-hover:text-white transition-colors">
@@ -143,18 +139,11 @@ export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: Heade
                           Pre-Primary, Primary, Upper Primary &amp; Secondary SSC Board
                         </span>
                       </div>
-                    </a>
+                    </Link>
 
-                    <a
-                      href="#streams"
-                      onClick={(e) => {
-                        closeDropdowns();
-                        const el = document.getElementById("streams");
-                        if (el) {
-                          e.preventDefault();
-                          el.scrollIntoView({ behavior: "smooth" });
-                        }
-                      }}
+                    <Link
+                      href="/#streams"
+                      onClick={handleLinkClick("streams", closeDropdowns)}
                       className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#9E1B32]/5 transition-colors cursor-pointer"
                     >
                       <div className="w-8 h-8 rounded-lg bg-[#9E1B32]/10 text-[#9E1B32] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#9E1B32] group-hover:text-white transition-colors">
@@ -168,7 +157,7 @@ export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: Heade
                           Science (PCM/PCB/Bifocal CS), Commerce &amp; Arts
                         </span>
                       </div>
-                    </a>
+                    </Link>
                   </div>
 
                   <div className="py-1">
@@ -230,7 +219,7 @@ export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: Heade
                   onMouseLeave={handleMouseLeave}
                 >
                   <Link
-                    href="/gallery"
+                    href="/campus"
                     onClick={closeDropdowns}
                     className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#9E1B32]/5 transition-colors"
                   >
@@ -319,9 +308,9 @@ export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: Heade
                   onMouseLeave={handleMouseLeave}
                 >
                   <Link
-                    href="#leadership"
-                    onClick={closeDropdowns}
-                    className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#9E1B32]/5 transition-colors"
+                    href="/#leadership"
+                    onClick={handleLinkClick("leadership", closeDropdowns)}
+                    className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#9E1B32]/5 transition-colors cursor-pointer"
                   >
                     <div className="w-8 h-8 rounded-lg bg-[#9E1B32]/10 text-[#9E1B32] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#9E1B32] group-hover:text-white transition-colors">
                       <ShieldCheck className="w-4 h-4" />
@@ -488,6 +477,24 @@ export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: Heade
                       </span>
                     </div>
                   </button>
+
+                  <Link
+                    href="/#admissions"
+                    onClick={handleLinkClick("admissions", closeDropdowns)}
+                    className="w-full text-left group flex items-start gap-2.5 p-2 rounded-lg hover:bg-[#9E1B32]/5 transition-colors cursor-pointer border-t border-slate-100 mt-1 pt-2"
+                  >
+                    <div className="w-7 h-7 rounded-md bg-[#DDA743]/15 text-[#9E1B32] flex items-center justify-center shrink-0 mt-0.5">
+                      <ArrowRight className="w-3.5 h-3.5 text-[#9E1B32]" />
+                    </div>
+                    <div>
+                      <span className="block text-xs font-bold text-slate-900 group-hover:text-[#9E1B32]">
+                        Admission Guidelines &amp; Desk
+                      </span>
+                      <span className="text-[10px] text-slate-500 block">
+                        Documentation, procedure &amp; criteria
+                      </span>
+                    </div>
+                  </Link>
                 </div>
               )}
             </div>

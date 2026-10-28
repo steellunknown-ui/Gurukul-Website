@@ -14,11 +14,14 @@ import {
   Award,
   Users,
   ShieldAlert,
+  ShieldCheck,
+  Home,
 } from "lucide-react";
 import { COLLEGE_CONFIG } from "@/config/college-config";
 import { CrestLogo } from "@/components/ui/crest-logo";
 import { Button } from "@/components/ui/button";
 import { AdmissionClassLevel } from "@/components/home/enquiry-modal";
+import { useInstitutionalNav } from "@/lib/use-institutional-nav";
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -27,6 +30,7 @@ interface MobileNavProps {
 }
 
 export function MobileNav({ isOpen, onClose, onOpenEnquiry }: MobileNavProps) {
+  const { handleLinkClick } = useInstitutionalNav();
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -80,6 +84,19 @@ export function MobileNav({ isOpen, onClose, onOpenEnquiry }: MobileNavProps) {
 
         {/* Scrollable Navigation Body */}
         <div className="flex-1 overflow-y-auto p-5 space-y-6">
+          {/* Direct Homepage / Overview Link */}
+          <Link
+            href="/"
+            onClick={handleLinkClick("overview", onClose)}
+            className="flex items-center justify-between p-3 rounded-xl bg-[#9E1B32]/10 hover:bg-[#9E1B32]/15 text-sm font-bold text-[#9E1B32] border border-[#9E1B32]/25 shadow-xs transition-colors cursor-pointer"
+          >
+            <div className="flex items-center gap-2.5">
+              <Home className="w-4 h-4 text-[#9E1B32]" />
+              <span>Overview &amp; Main Home</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-[#9E1B32]" />
+          </Link>
+
           {/* Admissions Action Buttons */}
           <div className="space-y-2">
             <span className="text-[11px] font-crest font-bold text-[#9E1B32] uppercase tracking-wider block">
@@ -88,7 +105,7 @@ export function MobileNav({ isOpen, onClose, onOpenEnquiry }: MobileNavProps) {
             <Button
               variant="primary"
               size="md"
-              className="w-full justify-center gap-2 font-bold shadow-md bg-[#9E1B32] hover:bg-[#BA203B] text-white"
+              className="w-full justify-center gap-2 font-bold shadow-md bg-[#9E1B32] hover:bg-[#BA203B] text-white cursor-pointer"
               onClick={() => {
                 onClose();
                 onOpenEnquiry("School");
@@ -101,7 +118,7 @@ export function MobileNav({ isOpen, onClose, onOpenEnquiry }: MobileNavProps) {
             <Button
               variant="outline"
               size="md"
-              className="w-full justify-center gap-2 font-bold border-[#9E1B32] text-[#9E1B32] hover:bg-[#9E1B32]/10"
+              className="w-full justify-center gap-2 font-bold border-[#9E1B32] text-[#9E1B32] hover:bg-[#9E1B32]/10 cursor-pointer"
               onClick={() => {
                 onClose();
                 onOpenEnquiry("XI");
@@ -114,7 +131,7 @@ export function MobileNav({ isOpen, onClose, onOpenEnquiry }: MobileNavProps) {
             <Button
               variant="outline"
               size="md"
-              className="w-full justify-center gap-2 font-bold border-slate-300 text-slate-700 hover:bg-slate-100"
+              className="w-full justify-center gap-2 font-bold border-slate-300 text-slate-700 hover:bg-slate-100 cursor-pointer"
               onClick={() => {
                 onClose();
                 onOpenEnquiry("XII");
@@ -131,41 +148,41 @@ export function MobileNav({ isOpen, onClose, onOpenEnquiry }: MobileNavProps) {
               Academic Spectrum (Jr. KG to Std XII)
             </span>
             <div className="grid grid-cols-1 gap-1.5">
-              <a
-                href="#sections"
-                onClick={onClose}
-                className="flex items-center justify-between p-2.5 rounded-lg bg-white hover:bg-[#9E1B32]/5 text-sm font-semibold text-slate-800 border border-slate-200 transition-colors"
+              <Link
+                href="/#sections"
+                onClick={handleLinkClick("sections", onClose)}
+                className="flex items-center justify-between p-2.5 rounded-lg bg-white hover:bg-[#9E1B32]/5 text-sm font-semibold text-slate-800 border border-slate-200 transition-colors cursor-pointer"
               >
                 <div className="flex items-center gap-2.5">
                   <BookOpen className="w-4 h-4 text-[#9E1B32]" />
                   <span>School Sections (Jr. KG to 10th SSC)</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
-              </a>
+              </Link>
 
-              <a
-                href="#streams"
-                onClick={onClose}
-                className="flex items-center justify-between p-2.5 rounded-lg bg-white hover:bg-[#9E1B32]/5 text-sm font-semibold text-slate-800 border border-slate-200 transition-colors"
+              <Link
+                href="/#streams"
+                onClick={handleLinkClick("streams", onClose)}
+                className="flex items-center justify-between p-2.5 rounded-lg bg-white hover:bg-[#9E1B32]/5 text-sm font-semibold text-slate-800 border border-slate-200 transition-colors cursor-pointer"
               >
                 <div className="flex items-center gap-2.5">
                   <GraduationCap className="w-4 h-4 text-[#9E1B32]" />
                   <span>Junior College (XI &amp; XII Science, Comm, Arts)</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
-              </a>
+              </Link>
 
-              <a
-                href="#admissions"
-                onClick={onClose}
-                className="flex items-center justify-between p-2.5 rounded-lg bg-white hover:bg-[#9E1B32]/5 text-sm font-semibold text-slate-800 border border-slate-200 transition-colors"
+              <Link
+                href="/#admissions"
+                onClick={handleLinkClick("admissions", onClose)}
+                className="flex items-center justify-between p-2.5 rounded-lg bg-white hover:bg-[#9E1B32]/5 text-sm font-semibold text-slate-800 border border-slate-200 transition-colors cursor-pointer"
               >
                 <div className="flex items-center gap-2.5">
                   <BookOpen className="w-4 h-4 text-[#DDA743]" />
                   <span>Admission Procedure &amp; Guidelines</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -176,7 +193,19 @@ export function MobileNav({ isOpen, onClose, onOpenEnquiry }: MobileNavProps) {
             </span>
             <nav className="flex flex-col space-y-1" aria-label="Mobile main navigation">
               <Link
-                href="/gallery"
+                href="/#leadership"
+                onClick={handleLinkClick("leadership", onClose)}
+                className="flex items-center justify-between py-2 px-3 rounded-md text-sm font-medium text-slate-700 hover:text-[#9E1B32] hover:bg-slate-100 transition-colors cursor-pointer"
+              >
+                <span className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-slate-400" />
+                  Founder &amp; Chairman&apos;s Desk
+                </span>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </Link>
+
+              <Link
+                href="/campus"
                 onClick={onClose}
                 className="flex items-center justify-between py-2 px-3 rounded-md text-sm font-medium text-slate-700 hover:text-[#9E1B32] hover:bg-slate-100 transition-colors"
               >

@@ -14,7 +14,6 @@ import {
   ArrowRight,
   CheckCircle2,
   Calendar,
-  Sparkles,
   Phone,
   FileText,
 } from "lucide-react";
@@ -40,7 +39,7 @@ const ACADEMIC_WINGS: AcademicWing[] = [
     title: "Pre-Primary Wing",
     subtitle: "Nursery, Jr. KG & Sr. KG",
     gradeBadge: "Ages 3 to 5",
-    icon: Sparkles,
+    icon: BookOpen,
     filter: (id) => ["nursery", "jr-kg", "sr-kg"].includes(id),
   },
   {

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { COLLEGE_CONFIG } from "@/config/college-config";
 import { Badge } from "@/components/ui/badge";
-import { Quote, User, Award, ShieldCheck, Sparkles, Building2 } from "lucide-react";
+import { Quote, User, Award, ShieldCheck, Building2 } from "lucide-react";
 import { MotionReveal } from "@/components/ui/motion-reveal";
 
 export function PrincipalMessage() {
@@ -18,7 +18,7 @@ export function PrincipalMessage() {
   return (
     <section
       id="leadership"
-      className="py-12 sm:py-20 bg-[#FCFAF7] border-b border-[#E8DFD7] relative overflow-hidden"
+      className="scroll-mt-20 sm:scroll-mt-24 py-12 sm:py-20 bg-[#FCFAF7] border-b border-[#E8DFD7] relative overflow-hidden"
     >
       {/* Background Soft Glow */}
       <div className="absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-7xl h-48 bg-gradient-to-b from-[#DDA743]/5 to-transparent pointer-events-none" />

@@ -12,7 +12,7 @@ export function AdmissionsCta({ onOpenEnquiry }: AdmissionsCtaProps) {
   return (
     <section
       id="admissions"
-      className="py-12 sm:py-20 bg-[#FCFAF7] border-b border-[#E8DFD7] overflow-hidden"
+      className="scroll-mt-20 sm:scroll-mt-24 py-12 sm:py-20 bg-[#FCFAF7] border-b border-[#E8DFD7] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden bg-gradient-to-br from-[#9E1B32] via-[#7A1224] to-[#4E0B19] text-[#FCFAF7] rounded-2xl sm:rounded-3xl border border-[#DDA743]/40 shadow-2xl p-5 sm:p-10 lg:p-14">

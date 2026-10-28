@@ -11,7 +11,6 @@ import {
   Download,
   Phone,
   AlertCircle,
-  Sparkles,
   Filter,
 } from "lucide-react";
 import { COLLEGE_CONFIG } from "@/config/college-config";

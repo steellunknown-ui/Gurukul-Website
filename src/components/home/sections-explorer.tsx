@@ -53,7 +53,7 @@ export function SectionsExplorer({
   };
 
   return (
-    <section id="sections" className="py-12 sm:py-20 bg-white border-b border-slate-200 overflow-hidden">
+    <section id="sections" className="scroll-mt-20 sm:scroll-mt-24 py-12 sm:py-20 bg-white border-b border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <MotionReveal direction="down" className="max-w-3xl mx-auto text-center space-y-2.5 mb-8 sm:mb-12">

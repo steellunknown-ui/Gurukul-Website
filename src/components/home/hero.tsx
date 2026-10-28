@@ -151,7 +151,7 @@ export function Hero({ onOpenEnquiry, onOpenFeeModal }: HeroProps) {
   return (
     <section
       id="overview"
-      className="relative overflow-hidden w-full max-w-full bg-[#1A080C] text-[#FCFAF7] border-b border-[#4E0B19] min-h-[640px] lg:min-h-[720px] flex flex-col justify-between"
+      className="scroll-mt-20 sm:scroll-mt-24 relative overflow-hidden w-full max-w-full bg-[#1A080C] text-[#FCFAF7] border-b border-[#4E0B19] min-h-[640px] lg:min-h-[720px] flex flex-col justify-between"
       aria-label="Campus Highlights Carousel"
     >
       {/* Background Slides Container — Strict Right-to-Left Slide Motion */}

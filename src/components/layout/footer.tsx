@@ -1,10 +1,15 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { COLLEGE_CONFIG } from "@/config/college-config";
 import { CrestLogo } from "@/components/ui/crest-logo";
 import { MapPin, Phone, Mail, Clock, ShieldCheck, ShieldAlert } from "lucide-react";
+import { useInstitutionalNav } from "@/lib/use-institutional-nav";
 
 export function Footer() {
+  const { handleLinkClick } = useInstitutionalNav();
+
   return (
     <footer className="bg-[#1A080C] text-[#F4EFEA] border-t border-[#4E0B19] mt-auto">
       {/* Main Footer Directory */}
@@ -37,34 +42,34 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-stone-300">
               <li>
-                <a href="#sections" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#sections" onClick={handleLinkClick("sections")} className="hover:text-[#DFBA73] transition-colors block">
                   Pre-Primary (Nursery, Jr. KG, Sr. KG)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#sections" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#sections" onClick={handleLinkClick("sections")} className="hover:text-[#DFBA73] transition-colors block">
                   Primary &amp; Upper Primary (Std 1st – 8th)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#sections" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#sections" onClick={handleLinkClick("sections")} className="hover:text-[#DFBA73] transition-colors block">
                   Secondary SSC Board (Std 9th &amp; 10th)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#streams" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#streams" onClick={handleLinkClick("streams")} className="hover:text-[#DFBA73] transition-colors block">
                   HSC Science — PCM / PCB / Bifocal CS
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#streams" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#streams" onClick={handleLinkClick("streams")} className="hover:text-[#DFBA73] transition-colors block">
                   HSC Commerce — Accounts &amp; Maths
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#streams" className="hover:text-[#DFBA73] transition-colors block text-[#DFBA73]">
+                <Link href="/#streams" onClick={handleLinkClick("streams")} className="hover:text-[#DFBA73] transition-colors block text-[#DFBA73]">
                   HSC Arts — Psychology &amp; Economics
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -76,34 +81,34 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-stone-300">
               <li>
-                <a href="#admissions" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#admissions" onClick={handleLinkClick("admissions")} className="hover:text-[#DFBA73] transition-colors block">
                   School Admissions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#admissions" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#admissions" onClick={handleLinkClick("admissions")} className="hover:text-[#DFBA73] transition-colors block">
                   Class XI (FYJC) Intake
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#admissions" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#admissions" onClick={handleLinkClick("admissions")} className="hover:text-[#DFBA73] transition-colors block">
                   Admission Procedure &amp; Eligibility
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#notices" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#notices" onClick={handleLinkClick("notices")} className="hover:text-[#DFBA73] transition-colors block">
                   Admission Notices
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#leadership" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/#leadership" onClick={handleLinkClick("leadership")} className="hover:text-[#DFBA73] transition-colors block">
                   Founder &amp; Chairman&apos;s Desk
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#campus" className="hover:text-[#DFBA73] transition-colors block">
+                <Link href="/campus" className="hover:text-[#DFBA73] transition-colors block">
                   Campus &amp; Science Labs
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/anti-ragging" className="hover:text-[#DFBA73] transition-colors block text-[#DFBA73] font-semibold flex items-center gap-1.5 pt-1 border-t border-[#4E0B19]/50">

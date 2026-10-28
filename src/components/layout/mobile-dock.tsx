@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { BookOpen, Bell, GraduationCap, Phone } from "lucide-react";
 import { COLLEGE_CONFIG } from "@/config/college-config";
 import { AdmissionClassLevel } from "@/components/home/enquiry-modal";
@@ -56,13 +57,13 @@ export function MobileDock({ onOpenEnquiry, onOpenFeeModal, onOpenNoticeDrawer }
             <span className="text-[10px] font-bold tracking-tight text-[#9E1B32]">Notices</span>
           </button>
         ) : (
-          <a
-            href="#notices"
+          <Link
+            href="/#notices"
             className="flex flex-col items-center justify-center py-1.5 px-1 rounded-lg text-slate-800 hover:text-[#9E1B32] hover:bg-slate-100 active:scale-95 transition-all"
           >
             <Bell className="w-4 h-4 text-slate-600 mb-0.5" />
             <span className="text-[10px] font-semibold tracking-tight">Notices</span>
-          </a>
+          </Link>
         )}
       </div>
     </aside>

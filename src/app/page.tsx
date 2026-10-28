@@ -35,6 +35,39 @@ export default function HomePage() {
   // Slide-out Left Notice Panel State
   const [isNoticeDrawerOpen, setIsNoticeDrawerOpen] = useState(false);
 
+  // Auto-scroll to target section if URL contains an anchor hash
+  React.useEffect(() => {
+    const handleHashScroll = () => {
+      if (typeof window === "undefined") return;
+      const hash = window.location.hash.replace("#", "").trim();
+      if (!hash) return;
+
+      if (hash === "overview") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      let attempts = 0;
+      const maxAttempts = 20;
+      const interval = setInterval(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+          clearInterval(interval);
+        } else {
+          attempts++;
+          if (attempts >= maxAttempts) {
+            clearInterval(interval);
+          }
+        }
+      }, 70);
+    };
+
+    handleHashScroll();
+    window.addEventListener("hashchange", handleHashScroll);
+    return () => window.removeEventListener("hashchange", handleHashScroll);
+  }, []);
+
   const handleOpenEnquiry = (classLevel: AdmissionClassLevel = "XI", streamId?: string) => {
     setEnquiryClassLevel(classLevel);
     if (streamId) {

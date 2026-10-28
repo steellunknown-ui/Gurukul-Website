@@ -11,7 +11,6 @@ import {
   Users,
   FileCheck2,
   ChevronRight,
-  Sparkles,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { COLLEGE_CONFIG } from "@/config/college-config";
@@ -119,7 +118,7 @@ export function AcademicTrackRecord({ onOpenEnquiry }: AcademicTrackRecordProps)
   return (
     <section
       id="academic-record"
-      className="py-12 sm:py-20 bg-gradient-to-b from-[#FCFAF7] via-[#F8F4EE] to-[#FCFAF7] border-y border-[#E8DFD7] relative overflow-hidden"
+      className="scroll-mt-20 sm:scroll-mt-24 py-12 sm:py-20 bg-gradient-to-b from-[#FCFAF7] via-[#F8F4EE] to-[#FCFAF7] border-y border-[#E8DFD7] relative overflow-hidden"
     >
       {/* Subtle Collegiate Watermark Motif */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#DDA743]/5 blur-3xl pointer-events-none" />
@@ -274,7 +273,7 @@ export function AcademicTrackRecord({ onOpenEnquiry }: AcademicTrackRecordProps)
                   <MotionReveal direction="right" delay={0.15} className="lg:col-span-5">
                     <div className="p-6 rounded-2xl bg-gradient-to-br from-[#9E1B32]/5 via-amber-500/5 to-transparent border border-[#9E1B32]/15 space-y-4">
                       <div className="flex items-center gap-2 text-[#9E1B32] font-crest text-xs font-bold uppercase tracking-wider">
-                        <Sparkles className="w-4 h-4 text-[#DDA743]" />
+                        <Award className="w-4 h-4 text-[#DDA743]" />
                         <span>The Gurukul Advantage</span>
                       </div>
                       <blockquote className="font-editorial text-base sm:text-lg italic text-[#1F1A1B] leading-relaxed">

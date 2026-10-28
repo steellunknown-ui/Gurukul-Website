@@ -15,7 +15,7 @@ export function Highlights() {
   return (
     <section
       id="highlights"
-      className="py-12 sm:py-20 bg-[#FFFFFF] border-b border-[#E8DFD7] overflow-hidden"
+      className="scroll-mt-20 sm:scroll-mt-24 py-12 sm:py-20 bg-[#FFFFFF] border-b border-[#E8DFD7] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
