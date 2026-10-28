@@ -16,6 +16,7 @@ import {
   Layers,
   ArrowRight,
   ShieldCheck,
+  ShieldAlert,
 } from "lucide-react";
 import { CrestLogo } from "@/components/ui/crest-logo";
 import { Button } from "@/components/ui/button";
@@ -331,6 +332,24 @@ export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: Heade
                       </span>
                       <span className="text-[11px] text-slate-500 block leading-tight">
                         1st Founder &amp; 2nd Chairman vision
+                      </span>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/anti-ragging"
+                    onClick={closeDropdowns}
+                    className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#9E1B32]/5 transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-amber-500/15 text-[#9E1B32] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#9E1B32] group-hover:text-white transition-colors">
+                      <ShieldAlert className="w-4 h-4 text-[#9E1B32] group-hover:text-white transition-colors" />
+                    </div>
+                    <div>
+                      <span className="block text-xs font-bold text-slate-900 group-hover:text-[#9E1B32] transition-colors">
+                        Anti-Ragging Cell &amp; Helplines
+                      </span>
+                      <span className="text-[11px] text-slate-500 block leading-tight">
+                        Zero-tolerance policy &amp; 24×7 emergency numbers
                       </span>
                     </div>
                   </Link>

@@ -13,6 +13,7 @@ import {
   Building2,
   Award,
   Users,
+  ShieldAlert,
 } from "lucide-react";
 import { COLLEGE_CONFIG } from "@/config/college-config";
 import { CrestLogo } from "@/components/ui/crest-logo";
@@ -204,6 +205,17 @@ export function MobileNav({ isOpen, onClose, onOpenEnquiry }: MobileNavProps) {
                 <span className="flex items-center gap-2">
                   <Award className="w-4 h-4 text-[#DDA743]" />
                   Board Toppers &amp; Honors
+                </span>
+                <ChevronRight className="w-4 h-4 text-slate-400" />
+              </Link>
+              <Link
+                href="/anti-ragging"
+                onClick={onClose}
+                className="flex items-center justify-between py-2 px-3 rounded-md text-sm font-medium text-slate-700 hover:text-[#9E1B32] hover:bg-slate-100 transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <ShieldAlert className="w-4 h-4 text-[#9E1B32]" />
+                  Anti-Ragging Cell &amp; Helplines
                 </span>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
               </Link>

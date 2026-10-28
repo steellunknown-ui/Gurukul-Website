@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { COLLEGE_CONFIG } from "@/config/college-config";
-import { Phone, Mail, ShieldCheck, Clock, GraduationCap } from "lucide-react";
+import { Phone, Mail, ShieldCheck, Clock, GraduationCap, AlertTriangle } from "lucide-react";
 
 function UtilityMarqueeContent() {
   return (
@@ -24,6 +25,18 @@ function UtilityMarqueeContent() {
         <span className="text-[#DFBA73] font-semibold font-sans">Ref:</span>
         <span>28903-97/DI-15/11/2016</span>
       </span>
+
+      <span className="text-stone-500">•</span>
+
+      {/* 2.5 Anti-Ragging Zero Tolerance Helpline */}
+      <Link
+        href="/anti-ragging"
+        className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#9E1B32]/80 border border-[#DDA743]/50 text-white hover:bg-[#BA203B] transition-colors"
+      >
+        <AlertTriangle className="w-3.5 h-3.5 text-[#F6D074] shrink-0" aria-hidden="true" />
+        <span className="text-[#F6D074] font-semibold">Anti-Ragging Cell:</span>
+        <span className="font-mono text-stone-200">24×7 Toll-Free: 1800-180-5522</span>
+      </Link>
 
       <span className="text-stone-500">•</span>
 

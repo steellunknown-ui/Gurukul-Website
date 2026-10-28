@@ -1,7 +1,8 @@
 import React from "react";
+import Link from "next/link";
 import { COLLEGE_CONFIG } from "@/config/college-config";
 import { CrestLogo } from "@/components/ui/crest-logo";
-import { MapPin, Phone, Mail, Clock, ShieldCheck } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ShieldCheck, ShieldAlert } from "lucide-react";
 
 export function Footer() {
   return (
@@ -104,6 +105,12 @@ export function Footer() {
                   Campus &amp; Science Labs
                 </a>
               </li>
+              <li>
+                <Link href="/anti-ragging" className="hover:text-[#DFBA73] transition-colors block text-[#DFBA73] font-semibold flex items-center gap-1.5 pt-1 border-t border-[#4E0B19]/50">
+                  <ShieldAlert className="w-3.5 h-3.5 text-[#DFBA73]" />
+                  <span>Anti-Ragging Cell (24×7)</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -145,6 +152,13 @@ export function Footer() {
             <span>Registered by Government of Maharashtra (Est. 2016–17)</span>
             <span>Higher Secondary / Self Finance</span>
             <span>Maharashtra State Board Index: J-15.14.086</span>
+            <Link
+              href="/anti-ragging"
+              className="text-[#DFBA73] font-semibold underline underline-offset-2 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <ShieldAlert className="w-3.5 h-3.5 text-[#DFBA73]" />
+              <span>Anti-Ragging Cell &amp; Helplines (Act XXXIII/1999)</span>
+            </Link>
             <span className="hover:text-stone-200 cursor-pointer">Terms &amp; Privacy</span>
           </div>
           <div className="text-[10px] text-[#DFBA73] font-mono">
