@@ -907,6 +907,18 @@ export default function AntiRaggingPage() {
               </div>
             </div>
           </MotionReveal>
+
+          {/* Reassuring Closing Institutional Statement */}
+          <MotionReveal direction="up" delay={0.1}>
+            <div className="mt-10 sm:mt-12 text-center max-w-2xl mx-auto px-4">
+              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-medium">
+                Gurukul Vidyapeeth is committed to upholding human dignity, mutual respect, and student well-being.
+              </p>
+              <p className="text-[11px] text-stone-500 mt-1.5 font-mono">
+                All grievances and inquiries are handled with absolute statutory confidentiality under Maharashtra Act No. XXXIII of 1999.
+              </p>
+            </div>
+          </MotionReveal>
         </section>
       </main>
 
