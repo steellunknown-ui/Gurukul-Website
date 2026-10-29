@@ -116,6 +116,16 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/careers" className="hover:text-[#DFBA73] transition-colors block">
+                  Careers at Gurukul (Faculty &amp; Staff)
+                </Link>
+              </li>
+              <li>
+                <Link href="/alumni" className="hover:text-[#DFBA73] transition-colors block">
+                  Alumni Network &amp; Registry
+                </Link>
+              </li>
+              <li>
                 <Link href="/anti-ragging" className="hover:text-[#DFBA73] transition-colors block text-[#DFBA73] font-semibold flex items-center gap-1.5 pt-1 border-t border-[#4E0B19]/50">
                   <ShieldAlert className="w-3.5 h-3.5 text-[#DFBA73]" />
                   <span>Anti-Ragging Cell (24×7)</span>
