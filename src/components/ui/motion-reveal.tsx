@@ -23,7 +23,7 @@ export function MotionReveal({
   duration = 0.55,
   className = "",
   viewportAmount = 0.05,
-  once = true,
+  once = false,
   hoverLift = false,
   whileHover,
   ...props
@@ -47,7 +47,13 @@ export function MotionReveal({
   };
 
   const variants: Variants = {
-    hidden: getInitialPosition(),
+    hidden: {
+      ...getInitialPosition(),
+      transition: {
+        duration: 0.25,
+        ease: "easeOut",
+      },
+    },
     visible: {
       opacity: 1,
       x: 0,
