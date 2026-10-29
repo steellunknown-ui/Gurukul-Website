@@ -12,7 +12,6 @@ import { Highlights } from "@/components/home/highlights";
 import { SectionsExplorer } from "@/components/home/sections-explorer";
 import { AcademicTrackRecord } from "@/components/home/academic-track-record";
 import { StreamsExplorer } from "@/components/home/streams-explorer";
-import { NoticesSection } from "@/components/home/notices-section";
 import { NoticeDrawer } from "@/components/home/notice-drawer";
 import { PrincipalMessage } from "@/components/home/principal-message";
 import { CampusShowcase } from "@/components/home/campus-showcase";
@@ -44,6 +43,11 @@ export default function HomePage() {
 
       if (hash === "overview") {
         window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      if (hash === "notices") {
+        setIsNoticeDrawerOpen(true);
         return;
       }
 
@@ -113,17 +117,17 @@ export default function HomePage() {
         {/* E. Higher Secondary Junior College Streams (XI & XII Science, Commerce, Arts) */}
         <StreamsExplorer onOpenEnquiry={(streamId) => handleOpenEnquiry("XI", streamId)} />
 
-        {/* F. Official Notices & Circulars */}
-        <NoticesSection onOpenNoticeDrawer={() => setIsNoticeDrawerOpen(true)} />
-
-        {/* G. Trust Leadership Vision (1st Founder & 2nd Chairman) */}
+        {/* F. Trust Leadership Vision (1st Founder & 2nd Chairman) */}
         <PrincipalMessage />
 
-        {/* H. Campus Environments & Science Labs */}
+        {/* G. Campus Environments & Science Labs */}
         <CampusShowcase />
 
-        {/* I. Admissions Call to Action */}
-        <AdmissionsCta onOpenEnquiry={(classLevel) => handleOpenEnquiry(classLevel)} />
+        {/* H. Admissions Call to Action */}
+        <AdmissionsCta
+          onOpenEnquiry={(classLevel) => handleOpenEnquiry(classLevel)}
+          onOpenNoticeDrawer={() => setIsNoticeDrawerOpen(true)}
+        />
       </main>
 
       {/* Institutional Footer */}

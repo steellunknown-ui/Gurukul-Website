@@ -6,9 +6,10 @@ import { MotionReveal } from "@/components/ui/motion-reveal";
 
 interface AdmissionsCtaProps {
   onOpenEnquiry: (classLevel?: AdmissionClassLevel) => void;
+  onOpenNoticeDrawer?: () => void;
 }
 
-export function AdmissionsCta({ onOpenEnquiry }: AdmissionsCtaProps) {
+export function AdmissionsCta({ onOpenEnquiry, onOpenNoticeDrawer }: AdmissionsCtaProps) {
   return (
     <section
       id="admissions"
@@ -118,13 +119,24 @@ export function AdmissionsCta({ onOpenEnquiry }: AdmissionsCtaProps) {
 
             {/* Sub-row: Circulars Link */}
             <div className="pt-1 sm:pt-2 flex items-center justify-center">
-              <a
-                href="#notices"
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-stone-200 hover:text-[#DDA743] transition-colors py-1 px-3 rounded-md hover:bg-white/5"
-              >
-                <span>View Official Admission Circulars &amp; Schedules</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#DDA743]" />
-              </a>
+              {onOpenNoticeDrawer ? (
+                <button
+                  type="button"
+                  onClick={onOpenNoticeDrawer}
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-stone-200 hover:text-[#DDA743] transition-colors py-1 px-3 rounded-md hover:bg-white/5 cursor-pointer"
+                >
+                  <span>View Official Admission Circulars &amp; Schedules</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#DDA743]" />
+                </button>
+              ) : (
+                <a
+                  href="#notices"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-stone-200 hover:text-[#DDA743] transition-colors py-1 px-3 rounded-md hover:bg-white/5"
+                >
+                  <span>View Official Admission Circulars &amp; Schedules</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#DDA743]" />
+                </a>
+              )}
             </div>
 
             <div className="pt-1 text-[11px] text-stone-300">
