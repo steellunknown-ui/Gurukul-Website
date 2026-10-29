@@ -71,6 +71,11 @@ export function Footer() {
                   HSC Arts — Psychology &amp; Economics
                 </Link>
               </li>
+              <li>
+                <Link href="/curriculum" className="hover:text-[#DFBA73] transition-colors block text-[#DFBA73] font-semibold pt-1 border-t border-[#4E0B19]/50">
+                  State Board Curriculum &amp; Syllabus
+                </Link>
+              </li>
             </ul>
           </div>
 

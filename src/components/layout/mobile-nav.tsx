@@ -16,6 +16,7 @@ import {
   ShieldAlert,
   ShieldCheck,
   Home,
+  Compass,
 } from "lucide-react";
 import { COLLEGE_CONFIG } from "@/config/college-config";
 import { CrestLogo } from "@/components/ui/crest-logo";
@@ -170,6 +171,18 @@ export function MobileNav({ isOpen, onClose, onOpenEnquiry }: MobileNavProps) {
                   <span>Junior College (XI &amp; XII Science, Comm, Arts)</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
+              </Link>
+
+              <Link
+                href="/curriculum"
+                onClick={onClose}
+                className="flex items-center justify-between p-2.5 rounded-lg bg-[#9E1B32]/5 hover:bg-[#9E1B32]/10 text-sm font-semibold text-[#9E1B32] border border-[#9E1B32]/20 transition-colors cursor-pointer"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Compass className="w-4 h-4 text-[#9E1B32]" />
+                  <span>Curriculum &amp; Board Syllabus</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-[#9E1B32]" />
               </Link>
 
               <Link

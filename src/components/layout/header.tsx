@@ -158,6 +158,24 @@ export function Header({ onOpenMobileNav, onOpenEnquiry, onOpenFeeModal }: Heade
                         </span>
                       </div>
                     </Link>
+
+                    <Link
+                      href="/curriculum"
+                      onClick={closeDropdowns}
+                      className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#9E1B32]/5 transition-colors cursor-pointer"
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[#9E1B32]/10 text-[#9E1B32] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#9E1B32] group-hover:text-white transition-colors">
+                        <Compass className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="block text-xs font-bold text-slate-900 group-hover:text-[#9E1B32] transition-colors">
+                          Curriculum &amp; Board Syllabus
+                        </span>
+                        <span className="text-[11px] text-slate-500 block leading-tight">
+                          Jr. KG to Std XII (SSC &amp; HSC) course blueprint
+                        </span>
+                      </div>
+                    </Link>
                   </div>
 
                   <div className="py-1">
