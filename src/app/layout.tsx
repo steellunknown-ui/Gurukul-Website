@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Plus_Jakarta_Sans, Cinzel } from "next/font/google";
 import "./globals.css";
 import { COLLEGE_CONFIG } from "@/config/college-config";
+import { AntiInspect } from "@/components/security/anti-inspect";
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -78,6 +79,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body className="min-h-screen flex flex-col bg-[#FCFAF7] text-[#1F1A1B] antialiased selection:bg-[#9E1B32] selection:text-white overflow-x-hidden w-full max-w-full">
+        <AntiInspect />
         {children}
       </body>
     </html>
