@@ -203,49 +203,7 @@ Motto: ॥ विद्या धनम् सर्वधन प्रधान
         </button>
       </div>
 
-      {/* 2. Mobile Responsive Trigger (Floating Royal Pill on Left Edge) */}
-      <div className="md:hidden fixed left-0 top-[35%] -translate-y-1/2 z-40">
-        <button
-          type="button"
-          onClick={handleOpen}
-          aria-label="Open Notice Board"
-          aria-expanded={isOpen}
-          className="group relative flex items-center gap-2 py-2.5 pl-2.5 pr-3.5 rounded-r-2xl bg-gradient-to-r from-[#B01B36] via-[#9E1B32] to-[#7D0E22] text-white border-y-2 border-r-2 border-[#DDA743] shadow-[0_8px_30px_rgba(176,27,54,0.55)] active:scale-95 transition-all duration-200 cursor-pointer select-none"
-        >
-          {/* Inner Golden Line */}
-          <div className="absolute inset-y-1 right-1 left-0 rounded-r-xl border-y border-r border-[#DDA743]/40 pointer-events-none" />
 
-          {/* Gilded Bell Icon */}
-          <div className="relative shrink-0">
-            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#FFE29A] to-[#8C6214] p-0.5 shadow-sm flex items-center justify-center">
-              <div className="w-full h-full rounded-full bg-[#6E0B1C] flex items-center justify-center">
-                <Bell className="w-3.5 h-3.5 text-[#FFE29A]" />
-              </div>
-            </div>
-            {urgentCount > 0 && (
-              <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-90" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500 border border-white" />
-              </span>
-            )}
-          </div>
-
-          {/* Text Message */}
-          <div className="flex flex-col text-left">
-            <span className="text-[7.5px] font-serif font-bold text-[#FFE29A] tracking-widest uppercase leading-none">
-              ॥ विद्या धनम् ॥
-            </span>
-            <span className="text-[11.5px] font-crest font-bold tracking-wide text-white leading-tight">
-              Notice Board
-            </span>
-          </div>
-
-          {/* Gilded Counter */}
-          <span className="w-5 h-5 rounded-full bg-gradient-to-br from-[#FFE29A] to-[#8C6214] text-[#6E0B1C] text-[10px] font-mono font-black flex items-center justify-center shadow-xs ml-0.5">
-            {COLLEGE_CONFIG.notices.length}
-          </span>
-        </button>
-      </div>
 
       {/* =========================================================================
           B. SLIDE-OUT LEFT DRAWER & BACKDROP OVERLAY
