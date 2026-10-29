@@ -352,17 +352,17 @@ export default function CareersPage() {
         {/* 1. HERO SECTION: CAREERS & FACULTY RECRUITMENT            */}
         {/* ========================================================= */}
         <section className="relative text-white pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden border-b border-[#DDA743]/30 min-h-[480px] flex items-center">
-          {/* Panoramic Campus Classroom Hero Image */}
+          {/* User-Provided Distinguished Faculty & Staff Hero Image */}
           <div className="absolute inset-0 z-0 overflow-hidden">
             <Image
-              src="/images/campus/campus-classroom.jpg"
-              alt="Faculty and educators in a modern interactive classroom at Gurukul Vidyapeeth"
+              src="/images/careers/careers-hero.jpg"
+              alt="Gurukul Vidyapeeth distinguished faculty, educators, coaches and staff team on campus"
               fill
               priority
               className="object-cover object-center filter brightness-100 contrast-100"
               sizes="100vw"
             />
-            {/* Natural gradient for readability without murky color cast */}
+            {/* Natural gradient for readability on left while keeping faculty team vibrant */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 via-50% to-black/25 pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
           </div>
