@@ -94,56 +94,53 @@ function AdminLoginForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-12">
             {/* =========================================================================
-                LEFT COLUMN: Institutional Identity & Heritage (Broad & Compact)
+                LEFT COLUMN: Institutional Identity & Heritage (Campus Photo as Background)
                 ========================================================================= */}
-            <div className="md:col-span-5 p-6 sm:p-7 lg:p-8 bg-gradient-to-b from-black/20 via-black/10 to-transparent border-b md:border-b-0 md:border-r border-[#DFBA73]/30 flex flex-col justify-between space-y-4">
-              <div className="space-y-3.5">
+            <div className="md:col-span-5 relative p-6 sm:p-7 lg:p-8 overflow-hidden border-b md:border-b-0 md:border-r border-[#DFBA73]/30 flex flex-col justify-between space-y-6">
+              {/* Architectural Campus Photo Background with Luminous Bright Maroon Veil */}
+              <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                <Image
+                  src="/images/admin/admin-campus-entrance.jpg"
+                  alt="Gurukul Vidyapeeth Central Administrative Block"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  className="object-cover scale-105"
+                  priority
+                />
+                {/* Dual-layer rich bright maroon overlay: highlights architecture while preserving crisp readability */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#8C1327]/92 via-[#9E1B32]/88 to-[#5C0A19]/95" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#420B16] via-transparent to-black/30" />
+              </div>
+
+              {/* Foreground Content Stack */}
+              <div className="relative z-10 space-y-4">
                 {/* Crest & Trust Title without the box bubble */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <div className="py-0.5">
                     <CrestLogo variant="light" />
                   </div>
 
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4E0B19] border border-[#DFBA73]/50 text-[#FFE29A] text-[10px] font-mono tracking-wider uppercase shadow-xs">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#4E0B19]/90 border border-[#DFBA73]/60 text-[#FFE29A] text-[10px] font-mono tracking-wider uppercase shadow-md backdrop-blur-xs">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#DFBA73]" />
                     <span>Gated Admin Console</span>
                   </div>
                 </div>
 
-                {/* New Administrative Heritage Building Photo */}
-                <div className="relative w-full h-28 sm:h-32 rounded-2xl overflow-hidden border border-[#DFBA73]/50 shadow-md group">
-                  <Image
-                    src="/images/admin/admin-campus-entrance.jpg"
-                    alt="Gurukul Vidyapeeth Central Administrative Block"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 360px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
-                  <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] font-mono text-[#FFE29A]">
-                    <span className="font-semibold drop-shadow-sm">Administrative Block</span>
-                    <span className="px-1.5 py-0.5 rounded bg-black/60 backdrop-blur-xs border border-[#DFBA73]/40 text-[9px] text-white">
-                      Central Campus
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <span className="text-[10px] font-serif font-bold text-[#FFE29A] tracking-widest uppercase block">
+                <div className="space-y-2 pt-1">
+                  <span className="text-[10.5px] font-serif font-bold text-[#FFE29A] tracking-widest uppercase block drop-shadow-sm">
                     ॥ सा विद्या या विमुक्तये ॥
                   </span>
-                  <p className="text-[11.5px] text-stone-200 leading-relaxed">
+                  <p className="text-xs text-stone-100 leading-relaxed drop-shadow-sm">
                     Bhagwat Prasad Gurukul Educational Trust&apos;s administrative gateway. Autonomous content, fees, notices, and media management.
                   </p>
                 </div>
               </div>
 
               {/* Compliance & Security Badges (Compact) */}
-              <div className="pt-3 border-t border-white/15 space-y-1 text-[10.5px] font-mono text-stone-200">
+              <div className="relative z-10 pt-4 border-t border-[#DFBA73]/30 space-y-1 text-[10.5px] font-mono text-stone-200">
                 <div className="flex items-center gap-2">
-                  <Shield className="w-3.5 h-3.5 text-[#DFBA73] shrink-0" />
-                  <span>Index: J-15.14.086 • Est. 2016–17</span>
+                  <Shield className="w-3.5 h-3.5 text-[#FFE29A] shrink-0" />
+                  <span className="text-stone-100">Index: J-15.14.086 • Est. 2016–17</span>
                 </div>
                 <div className="text-[10px] text-stone-300">
                   256-Bit Encrypted Session • Trust Governance
