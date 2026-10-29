@@ -40,7 +40,7 @@ export function Footer() {
             <h4 className="font-crest text-xs uppercase tracking-widest text-[#DFBA73] font-semibold border-b border-[#4E0B19] pb-2">
               Academic Spectrum (Jr. KG – 12th)
             </h4>
-            <ul className="space-y-2 text-xs text-stone-300">
+            <ul className="space-y-2 text-xs text-stone-300" suppressHydrationWarning>
               <li>
                 <Link href="/#sections" onClick={handleLinkClick("sections")} className="hover:text-[#DFBA73] transition-colors block">
                   Pre-Primary (Nursery, Jr. KG, Sr. KG)
@@ -84,7 +84,7 @@ export function Footer() {
             <h4 className="font-crest text-xs uppercase tracking-widest text-[#DFBA73] font-semibold border-b border-[#4E0B19] pb-2">
               Admissions
             </h4>
-            <ul className="space-y-2 text-xs text-stone-300">
+            <ul className="space-y-2 text-xs text-stone-300" suppressHydrationWarning>
               <li>
                 <Link href="/#admissions" onClick={handleLinkClick("admissions")} className="hover:text-[#DFBA73] transition-colors block">
                   School Admissions
